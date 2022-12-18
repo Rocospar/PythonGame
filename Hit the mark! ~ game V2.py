@@ -6,7 +6,6 @@ B=0
 scor=0
 F=3
 
-
 afisare=turtle.Turtle()
 afisare.hideturtle()
 afisare.penup()
@@ -17,15 +16,11 @@ def afisarescor():
      mesaj='Puncte: '+str(scor)
      afisare.write(mesaj, font=('Arial',40,'italic'))
 afisare.color('green')
-     
-
-     
-       
-
-          
+    
 tinta=turtle.Turtle()
 tinta.hideturtle()
 tinta.color('red')
+tinta.speed(11)
 def deseneazatinta():
      global A,B
      tinta.clear()
@@ -35,7 +30,7 @@ def deseneazatinta():
      tinta.penup()
      tinta.goto(A,B)
      tinta.pendown()
-     tinta.circle(10)
+     tinta.circle(12)
      tinta.end_fill()
 
 poz=turtle.Turtle()
@@ -43,15 +38,23 @@ poz.hideturtle()
 turtle.listen
 def click(x,y):
      global scor,F
-     if(math.fabs(A-x)<=15 and math.fabs(B-y)<=15):
+     if(math.fabs(A-x)<=20 and math.fabs(B-y)<=20):
           poz.clear()
           tinta.clear()
           scor=scor+1
           afisarescor()
           deseneazatinta()
-     elif(math.fabs(A-x)>15 and math.fabs(B-y)>15):
+          F=F+1
+     elif(math.fabs(A-x)>10 and math.fabs(B-y)>10):
           F=F-1
-          
+     if(F==10):
+          tinta.color("green")
+     if(F==20):
+          tinta.color("purple")
+     if(F==30):
+          tinta.color("brown")
+     if(F==40):
+          tinta.color("red")      
      if(F==2):
           vt3.clear()
      if(F==1):
@@ -67,8 +70,6 @@ def click(x,y):
           end.pendown()
           mj="You lost!!!"
           end.write(mj,font=("Ebrima",60,'bold',))
-         
-
 
 vt1=turtle.Turtle()
 vt1.hideturtle()
@@ -102,8 +103,7 @@ vt3.color('brown')
 def viata3():
      m1=("\u2764\ufe0f")
      vt3.write(m1, font=("Arial", 45, "normal"))
-     
-     
+
 viata1()
 viata2()
 viata3()
